@@ -1,3 +1,14 @@
+delete from persons;
+delete from powers;
+delete from heroes;
+delete from universe;
+delete from heroes_powers;
+
+select * from heroes;
+select * from persons;
+select * from universe;
+
+
 CREATE TABLE IF NOT EXISTS persons (
   id SERIAL PRIMARY KEY,
   name TEXT NOT NULL UNIQUE
@@ -29,47 +40,49 @@ CREATE TABLE IF NOT EXISTS heroes_powers (
 
 
 INSERT INTO universe
-( name )
+( id, name )
 VALUES
-('DC'),
-('Marvel');
+(1, 'DC'),
+(2, 'Marvel');
 
 INSERT INTO persons
-( name )
+( id, name )
 VALUES
-('Bruce Wayne'),
-('Bruce Banner'),
-('Clark Kent'),
-('Tony Stark'),
-('Peter Parker'),
-('Wade Wilson'),
-('Hal Jordan'),
-('Charles Xavier'),
-('Natasha Romanova');
+(1, 'Bruce Wayne'),
+(2, 'Bruce Banner'),
+(3, 'Clark Kent'),
+(4, 'Tony Stark'),
+(5, 'Peter Parker'),
+(6, 'Wade Wilson'),
+(7, 'Hal Jordan'),
+(8, 'Charles Xavier'),
+(9, 'Natasha Romanova');
+
+select * from persons;
 
 INSERT INTO heroes 
-( name, person_id, universe_id )
+( id, name, person_id, universe_id )
 VALUES
-('Batman', 1, 1),
-('The Incredible Hulk', 2, 2),
-('Superman', 3, 1),
-('Iron Man', 4, 2),
-('Spiderman', 5, 2),
-('Deadpool', 6, 2),
-('Green Lantern', 7, 1),
-('Professor X', 8, 2)
-('Black Widow', 9, 2);
+(1, 'Batman', 1, 1),
+(2, 'The Incredible Hulk', 2, 2),
+(3, 'Superman', 3, 1),
+(4, 'Iron Man', 4, 2),
+(5, 'Spiderman', 5, 2),
+(6, 'Deadpool', 6, 2),
+(7, 'Green Lantern', 7, 1),
+(8, 'Professor X', 8, 2),
+(9, 'Black Widow', 9, 2);
 
 INSERT INTO powers
-( power, description )
+( id, power, description )
 VALUES
-('Gliding', 'Not flying or levitation, but is the ability to ride air currents anywhere'),
-('Marksmanship','Super accuracy'),
-('Longevity', 'Slowing down or even stopping the effects of aging'),
-('Fire Resistance', 'Not being injured from some or all types of fire'),
-('Hypokinesis', 'Mentally send an individual into a trance-like state, and/or mentally manipulate an entranced individual via hypnotic suggestion'),
-('Heat Vision', 'Generate and project varying waves of energy from a persons eyes'),
-('X-Ray Vision', 'See through layers of objects at the discretion of the holder of this superpower');
+(1, 'Gliding', 'Not flying or levitation, but is the ability to ride air currents anywhere'),
+(2, 'Marksmanship','Super accuracy'),
+(3, 'Longevity', 'Slowing down or even stopping the effects of aging'),
+(4, 'Fire Resistance', 'Not being injured from some or all types of fire'),
+(5, 'Hypokinesis', 'Mentally send an individual into a trance-like state, and/or mentally manipulate an entranced individual via hypnotic suggestion'),
+(6, 'Heat Vision', 'Generate and project varying waves of energy from a persons eyes'),
+(7, 'X-Ray Vision', 'See through layers of objects at the discretion of the holder of this superpower');
 
 INSERT INTO heroes_powers
 ( hero_id, power_id )
