@@ -8,8 +8,8 @@ const HeroType = new GraphQLObjectType({
   name: 'Hero',
   fields: () => ({
     name: { type: GraphQLString },
-    identity: { type: GraphQLInt },
-    universe: { type: GraphQLInt },
+    person_id: { type: GraphQLInt },
+    universe_id: { type: GraphQLInt },
     alterEgo: { 
       type: PersonType,
       fields: { name: { type: GraphQLString } },
