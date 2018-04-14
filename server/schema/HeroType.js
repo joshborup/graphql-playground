@@ -15,7 +15,7 @@ const HeroType = new GraphQLObjectType({
       fields: { name: { type: GraphQLString } },
       resolve: (parentVal) => {
         return db
-          .then(db => db.findPerson([ parentVal.identity ]))
+          .then(db => db.findPerson([ parentVal.person_id ]))
           .then(alterEgo => alterEgo[0])
           .catch(err => console.error(err))
       }
